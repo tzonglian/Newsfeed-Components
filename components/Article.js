@@ -110,20 +110,26 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   const articleGroup = document.createElement('div')
   const articleTitle = document.createElement('h2');
   const articleDate = document.createElement('p');
+  const articleParagraphs = document.createElement('div');
   const article1 = document.createElement('p');
   const article2 = document.createElement('p');
   const article3 = document.createElement('p');
   const articleButton = document.createElement('span');
 
   //setup structure
-  articleGroup.appendChild(articleTitle, articleDate, article1, article2, article3, articleButton);
+  articleGroup.appendChild(articleTitle);
+  articleGroup.appendChild(articleDate);
+  articleGroup.appendChild(articleParagraphs);
+  articleGroup.appendChild(articleButton);
 
+  articleParagraphs.appendChild(article1);
+  articleParagraphs.appendChild(article2);
+  articleParagraphs.appendChild(article3);
+  
   //add classes
   articleGroup.className = 'article';
   articleDate.className = 'date';
-  article1.className = 'paragraph';
-  article2.className = 'paragraph';
-  article3.className = 'paragraph';
+  articleParagraphs.className = 'paragraphs';
   articleButton.className = 'expandButton';
 
   //set text content
@@ -152,10 +158,15 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
 
   // Step 4: Outside your function now, loop over the data. At each iteration you'll use your component to create a div.article element and append it to the DOM inside div.articles (see index.html).
 
+const articleToUpdate = document.querySelector('.articles')
+
 data.forEach(articleObj =>{
-  articleMaker(articleObj);
+  const articleElement = articleMaker(articleObj);
+  articleToUpdate.appendChild(articleElement);
 })
 
   // Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   // Refresh the page to see the new article.
+
+
 
