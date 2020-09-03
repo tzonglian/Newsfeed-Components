@@ -89,6 +89,8 @@ const data = [
   }
 ];
 
+
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
@@ -139,17 +141,15 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
   article2.textContent = secondParagraph;
   article3.textContent = thirdParagraph;
   articleButton.textContent = '+';
+  articleButton.style.fontSize = '28px';
 
 /*
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article.
 */
-  articleButton.addEventListener('click', event => {
-    articleGroup.toggle('article-open')
-
-    // openButton.classList.toggle('hide-btn')
-    // closeButton.classList.toggle('hide-btn')
-    // panelContent.classList.toggle('toggle-on')
+  articleButton.addEventListener('click', () => {
+    articleGroup.classList.toggle('close');
+    articleGroup.classList.toggle('article-open');
   })
 
   // Step 3: Don't forget to return something from your function!
@@ -160,13 +160,25 @@ function articleMaker({title, date, firstParagraph, secondParagraph, thirdParagr
 
 const articleToUpdate = document.querySelector('.articles')
 
+//Step5 code
+const newArticle = {
+  title: 'Adopt a Dog While You\'re at It',
+  date: 'September 2nd, 2020',
+  firstParagraph: `Doggo ipsum very hand that feed shibe stop it fren boof shooberino puggorino, heckin good boys and girls boof. The neighborhood pupper you are doing me the shock pats doggo extremely cuuuuuute, long doggo the neighborhood pupper smol. Shoob mlem pupperino pupper doing me a frighten doggo I am bekom fat, doge fat boi porgo many pats. Vvv dat tungg tho waggy wags noodle horse heckin, blop what a nice floof long water shoob. Long doggo very jealous pupper long woofer boofers the neighborhood pupper you are doing me a frighten heck fat boi, tungg puggo h*ck borkf thicc you are doin me a concern. I am bekom fat doggorino heckin blop tungg, super chub long doggo many pats. Adorable doggo what a nice floof bork tungg puggo, you are doing me the shock fluffer.`,
+  
+  secondParagraph: `He made many woofs thicc long water shoob shooberino doggo dat tungg tho tungg heck vvv, what a nice floof you are doin me a concern shibe shoober wow such tempt dat tungg tho. Wow very biscit noodle horse much ruin diet mlem floofs corgo floofs porgo you are doing me the shock, doggorino pats wow very biscit pupper much ruin diet puggorino borkdrive. Puggo the neighborhood pupper shooberino long water shoob puggorino noodle horse long water shoob, very good spot much ruin diet ruff doing me a frighten most angery pupper I have ever seen.`,
+  
+  thirdParagraph: `Very hand that feed shibe shooberino much ruin diet very hand that feed shibe very jealous pupper, ruff you are doing me a frighten length boy. Doge pupperino adorable doggo tungg dat tungg tho woofer, extremely cuuuuuute heckin angery woofer thicc. big ol pupper. Very taste wow borkdrive I am bekom fat pats bork lotsa pats adorable doggo, boofers dat tungg tho length boy long doggo maximum borkdrive. Tungg yapper very hand that feed shibe shooberino very good spot stop it fren, heckin good boys you are doing me the shock thicc blep.  Wow such tempt snoot such treat puggo you are doing me the shock, sub woofer adorable doggo fluffer fat boi, long bois very taste wow doing me a frighten. he made many woofs wow very biscit. mlem noodle horse. Long bois puggo h*ck such treat, mlem. Thicc blep smol, noodle horse. Smol shooberino very jealous pupper snoot borkdrive pupper, heckin shoober heckin angery woofer heck.`
+};
+
+data.push(newArticle);
+console.log(data);
+
 data.forEach(articleObj =>{
   const articleElement = articleMaker(articleObj);
   articleToUpdate.appendChild(articleElement);
 })
 
-  // Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
-  // Refresh the page to see the new article.
-
-
+// Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
+// Refresh the page to see the new article.
 
