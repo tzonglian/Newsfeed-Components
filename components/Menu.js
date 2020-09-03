@@ -24,42 +24,42 @@ let menuItems = [
 function menuMaker(menuArray){
   const menuGroup = document.createElement('div')
   const menuList = document.createElement('ul')
-  const menuStu = document.createElement('li')
-  const menuFac = document.createElement('li')
-  const menuWha = document.createElement('li')
-  const menuTec = document.createElement('li')
-  const menuMus = document.createElement('li')
-  const menuLogOut = document.createElement('li')
+  // const menuStu = document.createElement('li')
+  // const menuFac = document.createElement('li')
+  // const menuWha = document.createElement('li')
+  // const menuTec = document.createElement('li')
+  // const menuMus = document.createElement('li')
+  // const menuLogOut = document.createElement('li')
 
   menuGroup.appendChild(menuList)
-  menuList.appendChild(menuStu)
-  menuList.appendChild(menuFac)
-  menuList.appendChild(menuWha)
-  menuList.appendChild(menuTec)
-  menuList.appendChild(menuMus)
-  menuList.appendChild(menuLogOut)
+  // menuList.appendChild(menuStu)
+  // menuList.appendChild(menuFac)
+  // menuList.appendChild(menuWha)
+  // menuList.appendChild(menuTec)
+  // menuList.appendChild(menuMus)
+  // menuList.appendChild(menuLogOut)
 
   menuGroup.className = 'menu'
   menuList.className = 'ul'
-  menuStu.className = 'li'
-  menuFac.className = 'li'
-  menuWha.className = 'li'
-  menuTec.className = 'li'
-  menuMus.className = 'li'
-  menuLogOut.className = 'li'
+  // menuStu.className = 'li'
+  // menuFac.className = 'li'
+  // menuWha.className = 'li'
+  // menuTec.className = 'li'
+  // menuMus.className = 'li'
+  // menuLogOut.className = 'li'
 
 /*
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
 */
 
-  // menuArray.forEach(item => {
-  //   const createdItem = document.createElement('li')
+  menuArray.forEach(item => {
+    const createdItem = document.createElement('li')
 
-  //   menuList.appendChild(createdItem)
-  //   createdItem.className = 'li'
-  //   createdItem.textContent = item
-  // })
+    menuList.appendChild(createdItem)
+    createdItem.className = 'li'
+    createdItem.textContent = item
+  })
 
 
 /*
@@ -76,7 +76,7 @@ const menuHamburger = document.querySelector('.menu-button')
 */
 
 menuHamburger.addEventListener('click', () => {
-  menuHamburger.classList.toggle('menu--open')
+  menuGroup.classList.toggle('menu--open')
 })
 
 
@@ -92,4 +92,4 @@ return menuGroup
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
 
-menuMaker(menuItems)
+(document.querySelector('.header')).appendChild(menuMaker(menuItems))
